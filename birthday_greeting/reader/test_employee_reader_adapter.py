@@ -1,6 +1,6 @@
 from unittest import TestCase
-from kata.birthday_greeting.adaptor import EmployeeReaderAdaptor
-from kata.birthday_greeting.employee import Employee
+from kata.birthday_greeting.reader.employee_reader_adapter import EmployeeReaderAdaptor
+from kata.birthday_greeting.employee.employee import Employee
 
 
 class DummyReader(object):
@@ -17,7 +17,7 @@ class TestEmployeeReadAdaptor(TestCase):
         reader = EmployeeReaderAdaptor(DummyReader())
         employees = reader.get_employees()
 
-        self.assertLen(employees, 2)
+        self.assertEqual(len(employees), 2)
         employee_1 = employees[0]
         employee_2 = employees[1]
 

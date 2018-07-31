@@ -1,4 +1,4 @@
-from kata.birthday_greeting.employee import Employee
+from kata.birthday_greeting.employee.employee import Employee
 
 
 class EmployeeReaderAdaptor(object):
@@ -13,5 +13,5 @@ class EmployeeReaderAdaptor(object):
                 last_name=employee[0],
                 first_name=employee[1],
                 date_of_birth=employee[2],
-                email=employee[3]),
+                email=employee[3]) for employee in employee_list
         ]

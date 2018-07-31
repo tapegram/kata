@@ -1,4 +1,4 @@
-from kata.birthday_greeting.email import Email
+from kata.birthday_greeting.email.email import Email
 
 
 class BirthdayEmail(Email):
@@ -8,12 +8,11 @@ class BirthdayEmail(Email):
             client,
             employee):
         self.employee = employee
-        super(BirthdayEmail, self).__init__(
-            self, client)
+        super(BirthdayEmail, self).__init__(client)
 
     @property
     def to_field(self):
-        return employee.email
+        return self.employee.email
 
     @property
     def subject(self):

@@ -1,6 +1,6 @@
 from unittest import TestCase
-from kata.birthday_greeting.birthday_email import BirthdayEmail
-from kata.birthday_greeting.employee import Employee
+from kata.birthday_greeting.email.birthday_email import BirthdayEmail
+from kata.birthday_greeting.employee.employee import Employee
 
 
 class DummyEmailClient(object):

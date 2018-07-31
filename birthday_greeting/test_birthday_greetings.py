@@ -1,6 +1,7 @@
 from unittest import TestCase
-from kata.birthday_greeting.adaptor import EmployeeReaderAdaptor
-from kata.birthday_greeting.employee import Employee
+from kata.birthday_greeting.birthday_greetings import BirthdayGreetings
+from kata.birthday_greeting.reader.employee_reader_adapter import EmployeeReaderAdaptor
+from kata.birthday_greeting.employee.employee import Employee
 
 
 class DummyReader(object):
@@ -25,20 +26,20 @@ class TestBirthdayGreetings(TestCase):
 
     def test_birthday_greetings(self):
         reader = DummyReader()
-        client = DummyClient()
+        client = DummyEmailClient()
         birthday_greetings = BirthdayGreetings(
             reader, client)
 
-        self.assertLen(birthday_greetings.birthday_emails, 2)
+        self.assertEqual(len(birthday_greetings.birthday_emails), 2)
 
         birthday_greetings.send()
         self.assertEqual(client.call_count, 2)
-        self.assertEqual(client.call_args, 2)
+        self.assertEqual(len(client.call_args), 2)
         self.assertListEqual(
             client.call_args[0],
-            ["Smith", "John", "10/11/1991", "john@gmail.com"])
+            ["john@gmail.com", "Happy birthday!", "Happy birthday, dear John"])
         self.assertListEqual(
             client.call_args[1],
-            ["Donaldson", "Fred", "09/17/1989", "fred@gmail.com"])
+            ["fred@gmail.com", "Happy birthday!", "Happy birthday, dear Fred"])
 
 

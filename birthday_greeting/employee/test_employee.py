@@ -1,5 +1,5 @@
 from unittest import TestCase
-from kata.birthday_greeting.employee import Employee
+from kata.birthday_greeting.employee.employee import Employee
 
 
 class TestEmployee(TestCase):
